@@ -2,12 +2,10 @@ mod finding;
 
 extern crate alloc;
 
-use core::alloc::Layout;
-use std::fs;
-use std::io::{stdout, Write};
-use std::path::PathBuf;
-use serde_json::{json, Value};
 use crate::finding::find_biome;
+use core::alloc::Layout;
+use serde_json::{json, Value};
+use std::path::PathBuf;
 
 fn to_array_result(arr: &[u8]) -> *mut u8 {
     let mut new_vec = (arr.len() as u64).to_le_bytes().to_vec();
@@ -33,7 +31,13 @@ pub unsafe extern "C" fn of_free(ptr: *mut u8, size: u32, alignment: u32) {
 }
 
 pub fn main_with_json(input: Value) -> Value {
-    let current_dir = input.as_object().unwrap().get("current-dir").unwrap().as_str().unwrap();
+    let current_dir = input
+        .as_object()
+        .unwrap()
+        .get("current-dir")
+        .unwrap()
+        .as_str()
+        .unwrap();
 
     let result = match find_biome(&PathBuf::from(current_dir)) {
         Some(v) => {
@@ -41,7 +45,7 @@ pub fn main_with_json(input: Value) -> Value {
                 "found": true,
                 "biome": v.to_str().unwrap()
             })
-        },
+        }
         None => {
             json!({
                 "found": false

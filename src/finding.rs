@@ -1,9 +1,15 @@
-use alloc::fmt::format;
 use std::path::PathBuf;
 
 // if we can use musl binary, we should use it (it's a little bit faster)
 const BIOME_TARGET_NAMES: [&str; 8] = [
-    "win32-arm64", "darwin-arm64", "linux-arm64-musl", "linux-arm64", "win32-x64", "darwin-x64", "linux-x64-musl", "linux-x64"
+    "win32-arm64",
+    "darwin-arm64",
+    "linux-arm64-musl",
+    "linux-arm64",
+    "win32-x64",
+    "darwin-x64",
+    "linux-x64-musl",
+    "linux-x64",
 ];
 
 fn pick_biome_in_node_modules(node_modules: &PathBuf) -> Option<PathBuf> {

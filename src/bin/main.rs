@@ -1,5 +1,5 @@
-use serde_json::json;
 use onefmt_find_biome::main_with_json;
+use serde_json::json;
 
 fn main() {
     let in_ = json!({
