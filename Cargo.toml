@@ -4,6 +4,14 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 
+[profile.super-release]
+inherits = "release"
+opt-level = 3
+codegen-units = 1
+debug = false
+lto = "fat"
+panic = "abort"
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 

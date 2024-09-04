@@ -17,10 +17,10 @@ jobs:
           rustup target add wasm32-wasi
       - name: cargo build
         run:
-          cargo build --lib --release --target wasm32-wasi
+          cargo build --lib --profile super-release --target wasm32-wasi
 
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
-          file: ./target/wasm32-wasi/release/onefmt_find_biome.wasm
+          file: ./target/wasm32-wasi/super-release/onefmt_find_biome.wasm
           asset_name: onefmt_find_biome.wasm
