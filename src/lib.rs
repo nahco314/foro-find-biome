@@ -2,8 +2,7 @@ mod finding;
 
 use crate::finding::find_biome;
 use onefmt_plugin_utils::data_json_utils::JsonGetter;
-pub use onefmt_plugin_utils::interface::{of_free, of_malloc};
-use onefmt_plugin_utils::main_from;
+use onefmt_plugin_utils::onefmt_plugin_setup;
 use serde_json::{json, Value};
 use std::path::PathBuf;
 
@@ -27,4 +26,4 @@ pub fn main_with_json(input: Value) -> Value {
     result
 }
 
-main_from!(main_with_json);
+onefmt_plugin_setup!(main_with_json);
