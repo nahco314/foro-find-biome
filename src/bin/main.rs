@@ -1,4 +1,4 @@
-use onefmt_find_biome::main_with_json;
+use foro_find_biome::main_with_json;
 use serde_json::json;
 
 fn main() {

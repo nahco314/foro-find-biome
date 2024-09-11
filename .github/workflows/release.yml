@@ -22,5 +22,5 @@ jobs:
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
-          file: ./target/wasm32-wasi/super-release/onefmt_find_biome.wasm
-          asset_name: onefmt_find_biome.wasm
+          file: ./target/wasm32-wasi/super-release/foro_find_biome.wasm
+          asset_name: foro_find_biome.wasm
